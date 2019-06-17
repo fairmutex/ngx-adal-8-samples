@@ -1,0 +1,6 @@
+<div>
+<button *ngIf='authService.isAuthenticated' (click)='logout()'>Log Out</button>
+<button routerLink="/secured"> Secured Route</button>
+<button routerLink="/unsecured"> Unsecured Route</button>
+</div>
+<router-outlet></router-outlet>

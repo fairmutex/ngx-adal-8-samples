@@ -1,0 +1,4 @@
+<button *ngIf="!authService.isAuthenticated" (click)='login()'>Log In</button>
+<button *ngIf="authService.isAuthenticated" (click)='logout()'>Log Out</button>
+
+<router-outlet></router-outlet>
