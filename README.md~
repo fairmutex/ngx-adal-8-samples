@@ -2,7 +2,7 @@
 
 This sample app demonstrate usage of [ngx-adal-8](https://www.npmjs.com/package/ngx-adal-8) to get you started.
 
-First register your front-end application with [Azure](https://portal.azure.com/).   
+First register your front-end application with [Azure](https://portal.azure.com/).
 Instructions for registering Angular applications with Azure can be found [here](http://wpblog.fairmutex.com/2019/06/15/registering-an-angular-app-with-azure/)   
 Take note of Application (client) ID (6) and Directory (tenant) Id (7)
 ## Samples in this repository

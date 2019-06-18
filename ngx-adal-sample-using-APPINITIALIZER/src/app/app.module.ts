@@ -9,7 +9,8 @@ import { NgxAdalModule,NgxAdalService } from 'ngx-adal-8';
 export function init_app(authService: NgxAdalService) {
   return () => 
       new Promise((resolve, reject) => {
-        if(!authService.isAuthenticated) { authService.login(); }
+         if(!authService.isAuthenticated) { authService.login(); }
+      // else { userService.getProfile(); } 
         resolve();
       });
 }
