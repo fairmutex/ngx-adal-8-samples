@@ -25,8 +25,16 @@ Login is triggered before the app is loaded unless already logged in.
 
 Login is triggered as Appcomponent is constructed unless already logged in. I'm not a fan of this as the same result could be achieved using guards on the main route and looks neater.
 
-### ngx-adal-sample-accessing-BACKEND-API
+## ngx-adal-sample-accessing-back-end
 
-Login including secure API calls to a Sample .net core 2.2 API application
-In Progress
+#### ngx-adal-sample-accessing-BACKEND-API
+
+Login including secure API calls to  Sample .net core 2.2 API application
+
+#### Azure Secured API
+
+API secured by Azure
+
+___
+If I see interest I will add a sample with protected signalR connections
 

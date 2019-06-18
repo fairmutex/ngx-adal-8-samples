@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgxAdalService } from 'ngx-adal-8';
+import { APIService } from './api.service';
 
 @Component({
   selector: 'app-root',
@@ -9,10 +10,12 @@ import { NgxAdalService } from 'ngx-adal-8';
 export class AppComponent {
   title = 'ngx-adal-sample-accessing-BACKEND-API';
 
-  constructor(private authService:NgxAdalService){
-    if (!this.authService.isAuthenticated) {
-      this.authService.login();
-    }
+  values: string[];
+
+  constructor(
+    private authService:NgxAdalService,
+    private apiService:APIService){
+
 
     // Adal Logging
     // window['Logging'] = {
@@ -26,5 +29,13 @@ export class AppComponent {
 
   logout(){
     this.authService.logout();
+  }
+
+  login(){
+    this.authService.login();
+  }
+
+  getValues(){
+    this.apiService.getValues().subscribe(values => this.values = values);
   }
 }

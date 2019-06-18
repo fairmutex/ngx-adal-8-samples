@@ -1,3 +1,8 @@
 In Progress, will create a backend and a blog post of how to register it and assign permissions
+<button (click)='login()'>Log In</button>
 <button (click)='logout()'>Log Out</button>
+<ol>
+    <li *ngFor="let value of values">{{value}}</li>
+</ol>
+<button (click)='getValues()'>Get Values From API</button>
 <router-outlet></router-outlet>
