@@ -1,27 +1,14 @@
 # NgxAdalSampleUsingAPPINITIALIZER
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.2.
+# NGX Adal 8 Angular Front-end with APP_INITIALIZER and a mock Backend
 
-## Development server
+This sample app demonstrate usage of [ngx-adal-8](https://www.npmjs.com/package/ngx-adal-8) to get you started accessing Azure secured Back-end.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+First register your front-end application with [Azure](https://portal.azure.com/).   
+Instructions for registering Angular applications with Azure can be found [here](http://wpblog.fairmutex.com/2019/06/15/registering-an-angular-app-with-azure/)   
+Take note of Application (client) ID (6) and Directory (tenant) Id (7)
+Instructions how to create and register back-end with Azure and grant fron-end app access can be found [here](http://wpblog.fairmutex.com/2019/06/18/registering-an-net-core-api-with-azure-portal-and-grant-permission-for-front-end/)
 
-## Code scaffolding
+The API is just using an in memory library but coudl be easily be switched to be used with [.net core API Sample](https://github.com/fairmutex/ngx-adal-8-samples/tree/master/ngx-adal-sample-accessing-back-end/AzureSecuredAPI)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+What this sample is demonstrating is if user is not logged in, will be redirecte dto log in, else profile is loaded prior the app is loaded. The HttpClientInMemoryWebApiModule is set to delay the reply for 5 seconds so you can see that everything  is working as expected.

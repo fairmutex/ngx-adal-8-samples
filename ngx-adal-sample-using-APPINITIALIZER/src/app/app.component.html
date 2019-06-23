@@ -1,3 +1,9 @@
 <button *ngIf="authService.isAuthenticated" (click)='logout()'>Log Out</button>
+<div *ngIf="userService.profileData">
+ <div>User Id: {{userService.profileData?.id}}</div>
+ <div>User Role: {{userService.profileData?.role}}</div>
+
+</div>
+
 
 <router-outlet></router-outlet>

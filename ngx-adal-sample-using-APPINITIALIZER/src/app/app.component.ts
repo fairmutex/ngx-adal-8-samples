@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgxAdalService } from 'ngx-adal-8';
+import { UserService } from './user.service';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,9 @@ export class AppComponent {
 
   
   
-  constructor(private authService:NgxAdalService){
+  constructor(
+    private authService:NgxAdalService,
+    public userService: UserService){
 
     // Adal Logging
     // window['Logging'] = {

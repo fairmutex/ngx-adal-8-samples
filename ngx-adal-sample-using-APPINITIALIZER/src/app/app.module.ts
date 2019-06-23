@@ -5,14 +5,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { NgxAdalModule,NgxAdalService } from 'ngx-adal-8';
+import { UserService } from './user.service';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { environment } from 'src/environments/environment';
+import { UserProfileData } from './data/profile-mock-data';
+import { HttpClientModule } from '@angular/common/http';
 
-export function init_app(authService: NgxAdalService) {
-  return () => 
-      new Promise((resolve, reject) => {
-         if(!authService.isAuthenticated) { authService.login(); }
-      // else { userService.getProfile(); } 
-        resolve();
-      });
+export function init_app(authService: NgxAdalService,userService:UserService) {
+  console.log("Init App");
+  if(!authService.isAuthenticated) { 
+    return () => new Promise((resolve, reject) => {
+      authService.login(); 
+    });
+  }
+  else{
+    return () => userService.getProfile();
+   }
 }
 
 const adalConfig = {
@@ -35,15 +43,19 @@ const adalConfig = {
     BrowserModule,
     AppRoutingModule,
     NgxAdalModule,
+    HttpClientModule,
+    environment.production !== true ? HttpClientInMemoryWebApiModule.forRoot(UserProfileData, { delay: 5000 }) : [],
   ],
   providers: [
+    UserService,
     [NgxAdalService, { provide: 'adalConfig', useValue: adalConfig }],
     {
     provide: APP_INITIALIZER,
     useFactory: init_app,
     multi: true,
-    deps: [NgxAdalService]
-    }
+    deps: [NgxAdalService,UserService]
+    },
+   
   ],
   bootstrap: [AppComponent]
 })
